@@ -8,14 +8,14 @@
 		$histori=$histori['response'];
 	}
 	foreach ($histori->getTransactionDetails() as $key => $data) {
-		$history[$key]=$data->getTransactionID();
-	    $history[$key]=$data->getAccountStatementID();
-	    $history[$key]=$data->getTransactionDate();
-	    $history[$key]=$data->getTransactionType();
-	    $history[$key]=$data->getAmount();
-	    $history[$key]=$data->getCurrencyCode();
-	    $history[$key]=$data->getDescription();
-	    $history[$key]=$data->getCurrentBalance();
+		$history[$key]['TransactionID']=$data->getTransactionID();
+	    $history[$key]['AccountStatementID']=$data->getAccountStatementID();
+	    $history[$key]['TransactionDate']=$data->getTransactionDate();
+	    $history[$key]['TransactionType']=$data->getTransactionType();
+	    $history[$key]['Amount']=$data->getAmount();
+	    $history[$key]['CurrencyCode']=$data->getCurrencyCode();
+	    $history[$key]['Description']=$data->getDescription();
+	    $history[$key]['CurrentBalance']=$data->getCurrentBalance();
 	}
 	print_r($history);
  ?>
