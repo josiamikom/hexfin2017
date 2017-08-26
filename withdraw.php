@@ -151,7 +151,7 @@ require_once 'lib/DatabaseHandler.php';
                                     <div>
                                     	<h4>OTP Code:</h4>
                                         <h2><?php echo "$value[OTPCode]"; ?></h2>
-                                        <h3><?php echo "$value[Amount'"; ?></h3>
+                                        <h3><?php echo "$value[Amount]"; ?></h3>
                                     </div>
 
                                     <div class="footer">
