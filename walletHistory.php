@@ -3,7 +3,7 @@
 	$api=new ApiHandler();
 	$histori=$api->History('2017-08-01','2017-08-27',$_GET['id'],'');
 	if ($histori=='failed') {
-		$histori=array();
+		$histori='';
 	}else{
 		$histori=$histori['response'];
 	}
