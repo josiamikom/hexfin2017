@@ -16,7 +16,6 @@
         
         
     }
-    print_r($result);
 
 ?>
 <!doctype html>
@@ -142,7 +141,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <form action="newWallet.php">
-                        <button class="btn btn-info"><i class="pe-7s-plus"></i>New Wallet</button>
+                        <button class="btn btn-info"><i class="pe-7s-plus"></i> New Wallet</button>
                     </form>
                 </div>
                 <div class="row">
