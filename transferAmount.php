@@ -135,7 +135,7 @@
                     	<input type="hidden" name="data" value=<?php echo $_POST; ?>></input>
 	                        <div class="form-group">
 	                        	<label>Transfer Amount (Max. <?php echo "'$_POST[allowed]'"; ?>)</label>
-	                        	<select name="Amount">
+	                        	<select name="Amount" class="form-control">
 	                        		<?php 
 	                        		for ($i=0; $i < $loop; $i++) { 
 	                        			?>
