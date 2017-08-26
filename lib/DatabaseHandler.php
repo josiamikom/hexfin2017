@@ -73,7 +73,7 @@ class DatabaseHandler
 			$response=$stmt->setFetchMode(PDO::FETCH_ASSOC); 
 			$result=$stmt->fetchAll();
 			
-			$sql="insert into Wallet(Type,EmailAddress) values('$data[Type]','$data[EmailAddress]')";
+			$sql="insert into Wallet(Type,EmailAddress,Name) values('reguler','$data[EmailAddress]','$data[Name]')";
 			$this->conn->exec($sql);
 			$result[0]['PrimaryID']=$this->conn->lastInsertId();
 			$this->closeDB();

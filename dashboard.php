@@ -52,26 +52,26 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="dashboard.html">
-                        <i class="pe-7s-graph"></i>
+                    <a href="dashboard.php">
+                        <i class="pe-7s-repeat"></i>
                         <p>Transfer</p>
                     </a>
                 </li>
                 <li>
-                    <a href="user.html">
-                        <i class="pe-7s-user"></i>
+                    <a href="topup.php">
+                        <i class="pe-7s-gleam"></i>
                         <p>TopUp</p>
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
-                        <i class="pe-7s-note2"></i>
+                    <a href="withdraw.php">
+                        <i class="pe-7s-shopbag"></i>
                         <p>Withdraw</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
-                        <i class="pe-7s-news-paper"></i>
+                    <a href="wallets.php">
+                        <i class="pe-7s-wallet"></i>
                         <p>Wallets</p>
                     </a>
                 </li>
@@ -91,7 +91,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="navbar-brand">
-                        Josi
+                        Josi Aranda
                     </div>
                 </div>
                 <div class="collapse navbar-collapse">
@@ -169,32 +169,8 @@
 
         <footer class="footer">
             <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                               Blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
                 <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">Hexagrit</a>, made with sweats and tears.
                 </p>
             </div>
         </footer>
@@ -227,21 +203,6 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
 
-	<script type="text/javascript">
-    	$(document).ready(function(){
-
-        	demo.initChartist();
-
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-            },{
-                type: 'info',
-                timer: 4000
-            });
-
-    	});
-	</script>
+	
 
 </html>
