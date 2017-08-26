@@ -148,6 +148,9 @@
                 <div class="row">
                     <?php 
                     foreach ($result as $key => $value) {
+                        if ($value['PrimaryID']==$_GET['id']) {
+                            continue;
+                        }
                         ?>
                         <form method="post" action="transferAmount.php">
                             <div class="col-md-4">
