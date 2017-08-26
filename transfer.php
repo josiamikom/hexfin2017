@@ -150,7 +150,7 @@
                 </div>
                 <div class="row">
                     <?php 
-                    foreach ($wallet as $key => $value) {
+                    foreach ($wallets as $key => $value) {
                         
                         ?>
                         <form  action="selectedTransfer.php">
