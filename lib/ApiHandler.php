@@ -36,7 +36,8 @@
 
 		public function UserReg()
 		{
-			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
+			try{
+				$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
 
 				$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\UserRegistrationPayload();
 				$payload->setCustomerName('Josi Aranda');
@@ -48,6 +49,10 @@
 				$payload->setIDNumber('6474022101950008');
 
 				$response = $subAccountApi->registerUser($payload);
+			}catch(\Exception $e){
+				var_dump($e->getMessage());
+			}
+
 		}
 
 		public function UserInq($id)
