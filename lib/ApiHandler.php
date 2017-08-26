@@ -41,7 +41,7 @@
 			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\UserRegistrationPayload();
 			$payload->setCustomerName('josi Doe');
 			$payload->setDateOfBirth('2000-05-20');
-			$payload->setPrimaryID('082155627063');
+			$payload->setPrimaryID('081234567890');
 			$payload->setMobileNumber('081234567890');
 			$payload->setEmailAddress('user@bca.co.id');
 			$payload->setCustomerNumber('1111111112');
