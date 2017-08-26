@@ -7,7 +7,7 @@
 		
 		function __construct()
 		{
-			require 'lib/bca-api-sdk-php.phar';
+			require 'bca-finhacks-2017.phar';
 			$this->CompanyName='PT Finhacks eWallet 88801';
 			$this->CompanyCode='88801';
 			$this->ClientID='268b2069-b099-4fa2-8148-1f1c0327fe63';
@@ -17,21 +17,37 @@
 			$this->APISecret='199505e4-9d5f-4ba9-bb96-a3ea8b2f69c1';
 		}
 
-		public function UserReg()
+		public function getConfig()
 		{
 			$builder = new \Bca\Api\Sdk\SubAccount\SubAccountApiConfigBuilder();
 			$builder->baseApiUri('https://api.finhacks.id/');
 			$builder->baseOAuth2Uri('https://api.finhacks.id/');
-			$builder->clientId($ClientID);
-			$builder->clientSecret($ClientSecret);
-			$builder->apiKey($APIKey);
-			$builder->apiSecret();
+			$builder->clientId($this->ClientID);
+			$builder->clientSecret($this->ClientSecret);
+			$builder->apiKey($this->APIKey);
+			$builder->apiSecret($this->APISecret);
 			$builder->origin('182.16.165.101');
-			$builder->companyCode($CompanyCode);
+			$builder->companyCode($this->CompanyCode);
 
 			$config = $builder->build();
 			return $config;
 			//$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($config);
+		}
+
+		public function UserReg($data)
+		{
+			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
+
+			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\UserRegistrationPayload();
+			$payload->setCustomerName('John Doe');
+			$payload->setDateOfBirth('2000-05-20');
+			$payload->setPrimaryID('081234567890');
+			$payload->setMobileNumber('081234567890');
+			$payload->setEmailAddress('user@bca.co.id');
+			$payload->setCustomerNumber('1111111112');
+			$payload->setIDNumber('1234567890123456');
+
+			return $response = $subAccountApi->registerUser($payload);
 		}
 	}
  ?>
