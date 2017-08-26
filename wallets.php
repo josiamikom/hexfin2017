@@ -152,14 +152,14 @@
                                 </div>
                                 <div class="content">
                                     <div>
-                                        <h2>Balance: <?php echo "$value[currencyCode] $value[balance]"; ?></h2>
+                                        <h2><?php echo "$value[currencyCode] $value[balance]"; ?></h2>
                                     </div>
 
                                     <div class="footer">
                                         <div class="legend">
-                                            <i class="fa fa-circle text-info"></i> Open
-                                            <i class="fa fa-circle text-danger"></i> Bounce
-                                            <i class="fa fa-circle text-warning"></i> Unsubscribe
+                                            <i class="fa fa-circle text-info"></i> TopUp
+                                            <i class="fa fa-circle text-danger"></i> Transfer
+                                            <i class="fa fa-circle text-warning"></i> Withdraw
                                         </div>
                                         <hr>
                                         
