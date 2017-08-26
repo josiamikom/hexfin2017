@@ -142,8 +142,8 @@ require_once 'lib/DatabaseHandler.php';
                                 </div>
                                 <div class="content">
                                     <div>
-                                    	OTP Code:
-                                        <h2 class="text-info"><?php echo "$value[OTPCode]"; ?></h2>
+                                    	
+                                        <h2 class="text-info">OTP Code: <?php echo "$value[OTPCode]"; ?></h2>
                                         <h3 class="text-success">IDR <?php echo "$value[Amount]"; ?></h3>
                                     </div>
 
