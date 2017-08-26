@@ -1,3 +1,13 @@
+<?php
+
+    require_once 'lib/DatabaseHandler.php';
+    $db=new DatabaseHandler();
+    $result=$db->getWallets('josiaranda21@gmail.com');
+    $result=$result['response'];
+    echo "<pre>";
+    print_r($result);
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
