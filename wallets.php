@@ -145,7 +145,7 @@
                             <button class="btn btn-info"><i class="pe-7s-plus"></i> New Wallet</button>
                         </form>    
                     </div>
-                    
+                    <br/>
                 </div>
                 <div class="row">
                     <?php 
