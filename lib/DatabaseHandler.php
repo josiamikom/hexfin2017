@@ -182,6 +182,24 @@ class DatabaseHandler
 			return array('status'=>'failed','response'=>$e);
 		}
 	}
+
+	public function OTPLists($EmailAddress)
+	{
+		$sql="SELECT ot.*,  t.`Amount`,  w.`Name`FROM  `OTP_Detail` ot   JOIN `Transaction` t     ON ot.`TransactionID` = t.`TransactionID`   JOIN Wallet      ON w.`PrimaryID` = t.`PrimaryID`     JOIN `Users` u ON u.`EmailAddress`=w.`EmailAddress`    WHERE w.`EmailAddress`='$EmailAddress' ";
+		try {
+			$this->openDB();
+			$stmt=$this->conn->prepare($sql);
+			$stmt->execute();
+			$response=$stmt->setFetchMode(PDO::FETCH_ASSOC); 
+			$result=$stmt->fetchAll();
+			
+			$this->closeDB();
+			
+			return array("status"=>'success','response'=>$result);
+		} catch (Exception $e) {
+			return array('status'=>'failed','response'=>$e);
+		}
+	}
 }
 
  ?>
