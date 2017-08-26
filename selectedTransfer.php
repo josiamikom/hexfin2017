@@ -13,9 +13,12 @@
         $result[$key]['balance']=$data->getBalance();
         $data=$api->History('2017-08-01','2017-08-28',$value['PrimaryID'],'');
         $data=$data['response'];
-        
+        if ($_GET['id']==$value['PrimaryID'] && $result[$key]['balance']=='0.00') {
+            header('location:transfer.php')
+        }
         
     }
+
 
 ?>
 <!doctype html>
