@@ -158,9 +158,9 @@
                                     <div class="footer">
                                         <div class="legend">
                                             <a href=<?php echo "'$selectedTopup.php?id=$value[PrimaryID]'"; ?>><i class="fa fa-circle text-info"></i> TopUp</a>
-                                            <i class="fa fa-circle text-warning"></i> Transfer
-                                            <i class="fa fa-circle text-danger"></i> Withdraw
-                                            <i class="fa fa-circle text-success"></i> History
+                                            <a href=<?php echo "'$selectedTransfer.php?id=$value[PrimaryID]'"; ?>><i class="fa fa-circle text-warning"></i> Transfer</a>
+                                            <a href=<?php echo "'$selectedWithdraw.php?id=$value[PrimaryID]'"; ?>><i class="fa fa-circle text-danger"></i> Withdraw</a>
+                                            <a href=<?php echo "'$walletHistory.php?id=$value[PrimaryID]'"; ?>><i class="fa fa-circle text-success"></i> History</a>
                                         </div>
                                         <hr>
                                         
