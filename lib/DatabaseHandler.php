@@ -88,7 +88,8 @@ class DatabaseHandler
 
 	public function TopUp($data)
 	{
-		$data['RequestDate']=date('c');
+		$data['RequestDate']=date('Y-m-d').'T'.date('H:i:s.000P');
+		echo "$data[RequestDate]";
 		try {
 			$this->openDB();
 			$sql="insert into Transaction(TransactionType,ISODate,Amount,PrimaryID) values('topup','$data[RequestDate]','$data[Amount]',$data[PrimaryID])";
