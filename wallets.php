@@ -140,9 +140,12 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <form action="newWallet.php">
-                        <button class="btn btn-info"><i class="pe-7s-plus"></i> New Wallet</button>
-                    </form>
+                    <div class="col-md-6">
+                        <form action="newWallet.php">
+                            <button class="btn btn-info"><i class="pe-7s-plus"></i> New Wallet</button>
+                        </form>    
+                    </div>
+                    
                 </div>
                 <div class="row">
                     <?php 
