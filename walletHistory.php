@@ -148,7 +148,7 @@
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title"><?php echo "$value[TransactionType]"; ?></h4>
-                                    <p class="category">EXPIRED at <?php echo "$value[TransactionDate]"; ?> </p>
+                                    <p class="category"> at <?php echo "$value[TransactionDate]"; ?> </p>
                                 </div>
                                 <div class="content">
                                     <div>
