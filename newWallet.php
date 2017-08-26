@@ -4,7 +4,15 @@
     $db=new DatabaseHandler();
     require_once 'lib/ApiHandler.php';
     $api=new ApiHandler();
-    
+    if (!empty($_POST['Name'])) {
+    	$data['Name']=$_POST['Name'];
+    	$data['EmailAddress']='josiaranda21@gmail.com';
+    	$response=$db->MakeWallet($data);
+    	if ($response['status']=='success') {
+    		header('location:wallets.php');
+    	}
+
+    }
 
 ?>
 <!doctype html>
@@ -129,9 +137,15 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <form action="newWallet.php">
-                        
-                    </form>
+                    <div class="col-md-6">
+                    	<form action="newWallet.php" method="post">
+	                        <div class="form-group">
+	                        	<label>Wallet Name</label>
+	                        	<input type="text" class="form-control" name="Name" required=""></input>
+	                        </div>
+	                        <button type="submit" class="btn btn-info">Make Wallet</button>
+	                    </form>
+                    </div>
                 </div>
                 
 
