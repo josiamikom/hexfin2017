@@ -4,8 +4,8 @@
 	*/
 	class ApiHandler 
 	{
-		$APIHost='https://api.finhacks.id';
-		function __construct(argument)
+		
+		function __construct()
 		{
 			$this->CompanyName='PT Finhacks eWallet 88801';
 			$this->CompanyCode='88801';
@@ -18,15 +18,15 @@
 
 		public function getAccessToken()
 		{
-			$path="	/api/oauth/token";
+			$path="/api/oauth/token";
 			$post="grant_type=client_credentials";
 			$header_data = array(
-            "Content-Type: application/x-www-form-urlencoded"
+            "Content-Type: application/x-www-form-urlencoded",
             "Authorization: MDBhMmNlY2YtNTdhOS00OTVkLWIzMzctMDUzNzk0ODFjZWEyOjkwZjg2NmYwLTBiYjEtNDE5Zi1iZmNjLWFiZDNjZTY1ZDBlMQ=="
         	);
         	$ch=curl_init();
         	$opt= array(
-            CURLOPT_URL => $APIHost.$path,
+            CURLOPT_URL => "https://api.finhacks.id".$path,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HTTPHEADER => $header_data,
             CURLOPT_FOLLOWLOCATION => true,
