@@ -98,6 +98,7 @@ class DatabaseHandler
 			$this->closeDB();
 			$ApiHandler= new ApiHandler();
 			$response=$ApiHandler->TopUp($data);
+			print_r($response);
 			$this->openDB();
 			$sql="insert into TopUp_Detail(TransactionID,BCAReferenceID) values($data[TransactionID],'$response')";
 			$this->conn->exec($sql);
