@@ -31,7 +31,7 @@
             CURLOPT_HTTPHEADER => $header_data,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => $post,
+            CURLOPT_POSTFIELDS => json_encode($post),
             CURLOPT_HEADER => 1,
         	);
         	curl_setopt_array($ch, $opt);
