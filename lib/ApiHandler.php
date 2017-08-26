@@ -18,15 +18,15 @@
 
 		public function getAccessToken()
 		{
-			$path="/api/oauth/token";
+			
 			$post="grant_type=client_credentials";
 			$header_data = array(
-            "Content-Type: application/x-www-form-urlencoded",
-            "Authorization: MjY4YjIwNjktYjA5OS00ZmEyLTgxNDgtMWYxYzAzMjdmZTYzOmIzODNjMzVkLTNjMTEtNGNlNi1iNjMxLTg3NjdmNGMyMDg0Yg=="
+            "Content-Tsfsdype: application/x-www-form-urlencoded",
+            "Authorizdsdfation: MjY4YjIwNjktYjA5OS00ZmEyLTgxNDgtMWYxYzAzMjdmZTYzOmIzODNjMzVkLTNjMTEtNGNlNi1iNjMxLTg3NjdmNGMyMDg0Yg=="
         	);
         	$ch=curl_init();
         	$opt= array(
-            CURLOPT_URL => "https://api.finhacks.id".$path,
+            CURLOPT_URL => "https://api.finhacks.id/api/oauth/token",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HTTPHEADER => $header_data,
             CURLOPT_FOLLOWLOCATION => true,
