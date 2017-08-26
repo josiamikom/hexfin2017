@@ -39,7 +39,7 @@
 			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
 
 			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\UserRegistrationPayload();
-			$payload->setCustomerName('John Doe');
+			$payload->setCustomerName('josi Doe');
 			$payload->setDateOfBirth('2000-05-20');
 			$payload->setPrimaryID('081234567890');
 			$payload->setMobileNumber('081234567890');
