@@ -2,8 +2,15 @@
 
     require_once 'lib/DatabaseHandler.php';
     $db=new DatabaseHandler();
+    require_once 'lib/ApiHandler.php';
+    $api=new ApiHandler();
     $result=$db->getWallets('josiaranda21@gmail.com');
     $result=$result['response'];
+    foreach ($result as $key => $value) {
+        $data=$api->UserInq($value['PrimaryID']);
+        $result[$key]['currencyCode']=$data->getCurrencyCode();
+        $result[$key]['balance']=$data->getBalance();
+    }
     echo "<pre>";
     print_r($result);
 
