@@ -38,16 +38,16 @@
 		{
 			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
 
-			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\UserRegistrationPayload();
-			$payload->setCustomerName('aranda');
-			$payload->setDateOfBirth('2017-08-25');
-			$payload->setPrimaryID('00001');
-			$payload->setMobileNumber('082155627063');
-			$payload->setEmailAddress('user@bca.co.id');
-			$payload->setCustomerNumber('1111111113');
-			$payload->setIDNumber('1234567890123456');
-			$response = $subAccountApi->registerUser($payload);
-			return $response; 
+				$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\UserRegistrationPayload();
+				$payload->setCustomerName('Josi Aranda');
+				$payload->setDateOfBirth('1995-01-21');
+				$payload->setPrimaryID('082155627063');
+				$payload->setMobileNumber('082155627063');
+				$payload->setEmailAddress('josiaranda@gmail.com');
+				$payload->setCustomerNumber('11111111125');
+				$payload->setIDNumber('6474022101950008');
+
+				$response = $subAccountApi->registerUser($payload);
 		}
 
 		public function UserInq($id)
