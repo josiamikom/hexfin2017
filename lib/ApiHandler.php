@@ -19,7 +19,7 @@
 		public function getAccessToken()
 		{
 			
-			$post=array('grant_type'=>'cliendt_credentials');
+			$post=array('grant_type'=>'client_credentials');
 			$header_data = array(
             "Content-Type: application/x-www-form-urlencoded",
             "Authorization: MjY4YjIwNjktYjA5OS00ZmEyLTgxNDgtMWYxYzAzMjdmZTYzOmIzODNjMzVkLTNjMTEtNGNlNi1iNjMxLTg3NjdmNGMyMDg0Yg=="
