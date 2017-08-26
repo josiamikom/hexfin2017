@@ -4,8 +4,16 @@
     $db=new DatabaseHandler();
     require_once 'lib/ApiHandler.php';
     $api=new ApiHandler();
+    $data=$api->UserInq($_POST['to']);
+    $data=$data['response'];
     
+    $result[$key]['balance']=$data->getBalance();
+    $amountAllowed=$result[$key]['balance'];
+    $to=intval((1000000-intval($amountAllowed))/50000);
     $loop=intval($_POST['allowed']/50000);
+    if ($to<$loop) {
+    	$loop=$to;
+    }
 
 ?>
 <!doctype html>
