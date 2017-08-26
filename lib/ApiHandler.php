@@ -34,13 +34,13 @@
 			//$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($config);
 		}
 
-		public function UserReg($data)
+		public function UserReg()
 		{
 			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
 
 			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\UserRegistrationPayload();
 			$payload->setCustomerName('aranda');
-			$payload->setDateOfBirth('2017-08-26');
+			$payload->setDateOfBirth('2017-08-25');
 			$payload->setPrimaryID('00001');
 			$payload->setMobileNumber('082155627063');
 			$payload->setEmailAddress('user@bca.co.id');

@@ -1,7 +1,9 @@
 <?php
 echo "<pre>";
-echo "aaa<br>";
+
 require_once 'lib/ApiHandler.php';
 $api=new ApiHandler();
-print_r($api->UserReg('00001'));
+print_r($api->UserReg());
+echo "<br>aaa<br>";
+print_r($api->UserInq('00001'));
 ?>
