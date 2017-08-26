@@ -185,7 +185,7 @@ class DatabaseHandler
 
 	public function OTPLists($EmailAddress)
 	{
-		$sql="SELECT ot.*,  t.`Amount`,  w.`Name`FROM  `OTP_Detail` ot   JOIN `Transaction` t     ON ot.`TransactionID` = t.`TransactionID`   JOIN Wallet      ON w.`PrimaryID` = t.`PrimaryID`     JOIN `Users` u ON u.`EmailAddress`=w.`EmailAddress`    WHERE w.`EmailAddress`='$EmailAddress' ";
+		$sql="SELECT ot.*,  t.`Amount`,  w.`Name`FROM  `OTP_Detail` ot   JOIN `Transaction` t     ON ot.`TransactionID` = t.`TransactionID`   JOIN Wallet   w   ON w.`PrimaryID` = t.`PrimaryID`     JOIN `Users` u ON u.`EmailAddress`=w.`EmailAddress`    WHERE w.`EmailAddress`='$EmailAddress' ";
 		try {
 			$this->openDB();
 			$stmt=$this->conn->prepare($sql);
