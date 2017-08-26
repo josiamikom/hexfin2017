@@ -14,7 +14,7 @@
 			$this->ClientSecret='7c450016-087b-4276-94b0-a65ecfdd6011';
 			$this->OAuth='ZGIyZjA0ODEtOTZlNy00ZTdkLThhNzEtOWNlMDZlMmM2Njg4OjdjNDUwMDE2LTA4N2ItNDI3Ni05NGIwLWE2NWVjZmRkNjAxMQ==';
 			$this->APIKey='1ad2cfdd-d0dd-4ca1-9d7c-4217fd31906d';
-			$this->APISecret='19401cb34-e82d-414b-b871-db28c6d0ca5f';
+			$this->APISecret='9401cb34-e82d-414b-b871-db28c6d0ca5f';
 		}
 
 		public function getConfig()
