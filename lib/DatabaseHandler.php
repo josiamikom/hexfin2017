@@ -85,6 +85,23 @@ class DatabaseHandler
 			return array('status'=>'failed','response'=>$e);
 		}
 	}
+
+	public function TopUp($data)
+	{
+		$data['RequestDate']=date('c');
+		try {
+			$this->openDB();
+			$sql="insert into Transaction(TransactionType,ISODate,Amount,PrimaryID) values('topup','$data[RequestDate]','$data[Amount]',$data[PrimaryID])";
+			$this->conn->exec($sql);
+			$data['TransactionID']=$this->conn->lastInsertId();
+			$this->closeDB();
+			$ApiHandler= new ApiHandler();
+			$response=$ApiHandler->TopUp($data);
+			return array("status"=>'success','response'=>$response);
+		} catch (Exception $e) {
+			return array('status'=>'failed','response'=>$e);
+		}
+	}
 }
 
  ?>

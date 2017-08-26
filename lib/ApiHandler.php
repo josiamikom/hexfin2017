@@ -75,8 +75,9 @@
 			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\UserUpdatePayload();
 			$payload->setCustomerName($data['CustomerName']);
 			$payload->setDateOfBirth($data['DateOfBirth']);
-			$payload->setMobileNumber($data['MobileNUmber']);
+			$payload->setMobileNumber($data['MobileNumber']);
 			$payload->setEmailAddress($data['EmailAddress']);
+			$payload->setWalletStatus($data['Status']);
 			$payload->setIDNumber($data['IDNumber']);
 			try {
 				$response = $subAccountApi->updateUser($data['PrimaryID'], $payload);
@@ -91,7 +92,7 @@
 			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
 			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\TopUpPayload();
 			$payload->setPrimaryID($data['PrimaryID']);
-			$payload->setTransactionID($data['trxID']);
+			$payload->setTransactionID($data['TransactionID']);
 			$payload->setRequestDate($data['RequestDate']);
 			$payload->setAmount($data['Amount']);
 			$payload->setCurrencyCode('IDR');
@@ -123,7 +124,7 @@
 
 			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\TransferCompanyPayload();
 			$payload->setPrimaryID($data['PrimaryID']);
-			$payload->setTransactionID($data['trxID']);
+			$payload->setTransactionID($data['TransactionID']);
 			$payload->setRequestDate($data['RequestDate']);
 			$payload->setAmount($data['Amount']);
 			$payload->setCurrencyCode('IDR');
