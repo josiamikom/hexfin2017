@@ -123,9 +123,10 @@ class DatabaseHandler
 			$this->closeDB();
 			$ApiHandler= new ApiHandler();
 			$response=$ApiHandler->getOTP($data);
+			$response=$response['response'];
 			$this->openDB();
-			//$sql="insert into TopUp_Detail(TransactionID,BCAReferenceID) values($data[TransactionID],'$response[response]')";
-			//$this->conn->exec($sql);
+			$sql="insert into TopUp_Detail(TransactionID,BCAReferenceID) values($data[TransactionID],'$response[response]')";
+			$this->conn->exec($sql);
 			$this->closeDB();
 			return array("status"=>'success','response'=>$response);
 		} catch (Exception $e) {
