@@ -151,7 +151,9 @@
                                     <p class="category">Created at <?php echo "$value[Created]"; ?> </p>
                                 </div>
                                 <div class="content">
-                                    <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                                    <div>
+                                        <h2>Balance: <?php echo "$value[currencyCode] $value[balance]"; ?></h2>
+                                    </div>
 
                                     <div class="footer">
                                         <div class="legend">
