@@ -8,13 +8,13 @@
 		function __construct()
 		{
 			require 'bca-finhacks-2017.phar';
-			$this->CompanyName='PT Finhacks eWallet 88801';
-			$this->CompanyCode='88801';
-			$this->ClientID='268b2069-b099-4fa2-8148-1f1c0327fe63';
-			$this->ClientSecret='b383c35d-3c11-4ce6-b631-8767f4c2084b';
-			$this->OAuth='MjY4YjIwNjktYjA5OS00ZmEyLTgxNDgtMWYxYzAzMjdmZTYzOmIzODNjMzVkLTNjMTEtNGNlNi1iNjMxLTg3NjdmNGMyMDg0Yg==';
-			$this->APIKey='0dfb11cd-b140-40cd-b65a-220e9998a129';
-			$this->APISecret='199505e4-9d5f-4ba9-bb96-a3ea8b2f69c1';
+			$this->CompanyName='PT Finhacks eWallet 88829';
+			$this->CompanyCode='88829';
+			$this->ClientID='db2f0481-96e7-4e7d-8a71-9ce06e2c6688';
+			$this->ClientSecret='7c450016-087b-4276-94b0-a65ecfdd6011';
+			$this->OAuth='ZGIyZjA0ODEtOTZlNy00ZTdkLThhNzEtOWNlMDZlMmM2Njg4OjdjNDUwMDE2LTA4N2ItNDI3Ni05NGIwLWE2NWVjZmRkNjAxMQ==';
+			$this->APIKey='1ad2cfdd-d0dd-4ca1-9d7c-4217fd31906d';
+			$this->APISecret='19401cb34-e82d-414b-b871-db28c6d0ca5f';
 		}
 
 		public function getConfig()
