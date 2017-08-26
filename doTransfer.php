@@ -1,6 +1,6 @@
 <?php 
 
-	$data=array('PrimaryID'=>'$_POST[from]','Amount'=>'$_POST[Amount]');
+	$data=array('PrimaryID'=>$_POST['from'],'Amount'=>$_POST['Amount']);
 	$recipient=$_POST['to'];
 	require_once 'lib/DatabaseHandler.php';
     $db=new DatabaseHandler();
