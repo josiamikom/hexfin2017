@@ -13,7 +13,7 @@
         $result[$key]['balance']=$data->getBalance();
         $data=$api->History('2017-08-01','2017-08-28',$value['PrimaryID'],'');
         $data=$data['response'];
-        if (empty($data->getBody()->getErrorMessage()->getEnglish())) {
+        if (isset($data->getBody()->getErrorMessage()->getEnglish())) {
             $result[$key]['history']=array();
         }else {
             $result[$key]['history']=$data;    
