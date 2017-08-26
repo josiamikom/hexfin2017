@@ -13,12 +13,12 @@
         $result[$key]['balance']=$data->getBalance();
         $data=$api->History('2017-08-01','2017-08-28',$value['PrimaryID'],'');
         $data=$data['response'];
-        try {
-            $a=$data->getBody()->getErrorMessage()->getEnglish();
+        if (is_callable($data->getBody()->getErrorMessage()->getEnglish())) {
             $result[$key]['history']=array();
-        } catch (Exception $e) {
-            $result[$key]['history']=$data;
-        } 
+        }else {
+            $result[$key]['history']=$data;    
+        }
+        
     }
     echo "<pre>";
     print_r($result);
