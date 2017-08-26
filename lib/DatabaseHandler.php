@@ -80,7 +80,7 @@ class DatabaseHandler
 			$ApiHandler=new ApiHandler();
 			$response=$ApiHandler->WalletReg($result[0]);
 
-			return array("status"=>'success','response'=>$result);
+			return array("status"=>'success','response'=>$response);
 		} catch (Exception $e) {
 			return array('status'=>'failed','response'=>$e);
 		}
