@@ -119,7 +119,7 @@
 			}
 		}
 
-		public function WithdrawBack($data)
+		public function Withdraw($data)
 		{
 			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
 

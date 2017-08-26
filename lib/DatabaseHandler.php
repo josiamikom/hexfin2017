@@ -135,6 +135,35 @@ class DatabaseHandler
 			return array('status'=>'failed','response'=>$e);
 		}
 	}
+
+	public function Transfer($data,$RecipientID)
+	{
+		$data['RequestDate']=date('Y-m-d').'T'.date('H:i:s.000P');
+		try {
+			$this->openDB();
+			$sql="insert into Transaction(TransactionType,ISODate,Amount,PrimaryID) values('withdraw','$data[RequestDate]','$data[Amount]',$data[PrimaryID])";
+			$this->conn->exec($sql);
+			$data['TransactionID']=$this->conn->lastInsertId();
+			$this->closeDB();
+			$ApiHandler= new ApiHandler();
+			$response=$ApiHandler->Withdraw($data);
+			$this->openDB();
+			$sql="insert into Transaction(TransactionType,ISODate,Amount,PrimaryID) values('topup','$data[RequestDate]','$data[Amount]',$RecipientID)";
+			$this->conn->exec($sql);
+			$data['TransactionID']=$this->conn->lastInsertId();
+			$this->closeDB();
+			$ApiHandler= new ApiHandler();
+			$data['PrimaryID']=$RecipientID;
+			$response=$ApiHandler->TopUp($data);
+			$this->openDB();
+			$sql="insert into TopUp_Detail(TransactionID,BCAReferenceID) values($data[TransactionID],'$response[response]')";
+			$this->conn->exec($sql);
+			$this->closeDB();
+			return array("status"=>'success','response'=>$response);
+		} catch (Exception $e) {
+			return array('status'=>'failed','response'=>$e);
+		}
+	}
 }
 
  ?>
