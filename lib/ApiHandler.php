@@ -7,6 +7,7 @@
 		
 		function __construct()
 		{
+			require 'lib/bca-api-sdk-php.phar';
 			$this->CompanyName='PT Finhacks eWallet 88801';
 			$this->CompanyCode='88801';
 			$this->ClientID='268b2069-b099-4fa2-8148-1f1c0327fe63';
@@ -16,31 +17,21 @@
 			$this->APISecret='199505e4-9d5f-4ba9-bb96-a3ea8b2f69c1';
 		}
 
-		public function getAccessToken()
+		public function UserReg()
 		{
-			
-			$post=array('grant_type'=>'client_credentials');
-			$header_data = array(
-            "Content-Type: application/x-www-form-urlencoded",
-            "Authorization: MjY4YjIwNjktYjA5OS00ZmEyLTgxNDgtMWYxYzAzMjdmZTYzOmIzODNjMzVkLTNjMTEtNGNlNi1iNjMxLTg3NjdmNGMyMDg0Yg=="
-        	);
-        	$ch=curl_init();
-        	$opt= array(
-            CURLOPT_URL => "https://api.finhacks.id/api/oauth/token",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_HTTPHEADER => $header_data,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => json_encode($post),
-            CURLOPT_HEADER => 1,
-        	);
-        	curl_setopt_array($ch, $opt);
-        	$response = curl_exec($ch);
-        	if (curl_error($ch)) {
-	            die(curl_error($ch));
-	        }
-	        return $response;
+			$builder = new \Bca\Api\Sdk\SubAccount\SubAccountApiConfigBuilder();
+			$builder->baseApiUri('https://api.finhacks.id/');
+			$builder->baseOAuth2Uri('https://api.finhacks.id/');
+			$builder->clientId($ClientID);
+			$builder->clientSecret($ClientSecret);
+			$builder->apiKey($APIKey);
+			$builder->apiSecret();
+			$builder->origin('182.16.165.101');
+			$builder->companyCode($CompanyCode);
 
+			$config = $builder->build();
+			return $config;
+			//$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($config);
 		}
 	}
  ?>
