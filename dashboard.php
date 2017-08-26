@@ -11,7 +11,10 @@
         $data=$data['response'];
         $result[$key]['currencyCode']=$data->getCurrencyCode();
         $result[$key]['balance']=$data->getBalance();
-        $wallets[]=array('PrimaryID'=>$value['PrimaryID'],'Name'=>$value['Name'],'Amount'=>$data->getBalance());
+        if (intval($data->getBalance())>50000) {
+            $wallets[]=array('PrimaryID'=>$value['PrimaryID'],'Name'=>$value['Name'],'Amount'=>$data->getBalance());
+        }
+        
         
     }
     print_r($wallets);
