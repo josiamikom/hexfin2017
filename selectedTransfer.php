@@ -16,7 +16,10 @@
         if ($_GET['id']==$value['PrimaryID'] && $result[$key]['balance']=='0.00') {
             header('location:transfer.php');
         }
-        $amountAllowed=$result[$key]['balance'];
+        if ($_GET['id']==$value['PrimaryID']) {
+            $amountAllowed=$result[$key]['balance'];
+        }
+        
     }
 
 
