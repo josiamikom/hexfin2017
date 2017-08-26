@@ -6,7 +6,7 @@
     $api=new ApiHandler();
     
 
-    
+    }
 
 ?>
 <!doctype html>
@@ -135,7 +135,7 @@
                     	<form action="doTransfer.php" method="post">
                     	<input type="hidden" name="data" value=<?php echo $_POST; ?>></input>
 	                        <div class="form-group">
-	                        	<label>Transfer Amount</label>
+	                        	<label>Transfer Amount (Max. <?php echo "$_POST[allowed]"; ?>)</label>
 	                        	<input type="text" class="form-control" name="Name" required=""></input>
 	                        </div>
 	                        <button type="submit" class="btn btn-info">Transfer</button>
