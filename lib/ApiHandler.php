@@ -42,9 +42,9 @@
 			$payload->setCustomerName('aranda');
 			$payload->setDateOfBirth('2017-08-26');
 			$payload->setPrimaryID('00001');
-			$payload->setMobileNumber('081234567890');
+			$payload->setMobileNumber('082155627063');
 			$payload->setEmailAddress('user@bca.co.id');
-			$payload->setCustomerNumber('1111111112');
+			$payload->setCustomerNumber('1111111113');
 			$payload->setIDNumber('1234567890123456');
 			$response = $subAccountApi->registerUser($payload);
 			return $response; 
