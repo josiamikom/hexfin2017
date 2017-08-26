@@ -4,6 +4,6 @@
 	$recipient=$_POST['to'];
 	require_once 'lib/DatabaseHandler.php';
     $db=new DatabaseHandler();
-    var_dump($db->Transfer($data,$recipient));
-    
+    $db->Transfer($data,$recipient);
+    header('location:wallets.php')
  ?>
