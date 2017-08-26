@@ -10,7 +10,7 @@
     $result[$key]['balance']=$data->getBalance();
     $amountAllowed=$result[$key]['balance'];
     if (intval($amountAllowed)<50000) {
-        header('location:wallets.php')
+        header('location:wallets.php');
     }
     $loop=intval($amountAllowed/50000);
         
