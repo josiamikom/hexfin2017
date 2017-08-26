@@ -8,5 +8,5 @@
 	}else {
 		$id=$_GET['id'];
 	}
-	print_r($api->UserInq("'$id'"));
+	print_r($api->UserInq("$id"));
  ?>
