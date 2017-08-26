@@ -6,7 +6,7 @@
     $api=new ApiHandler();
     
 
-    }
+    
 
 ?>
 <!doctype html>
