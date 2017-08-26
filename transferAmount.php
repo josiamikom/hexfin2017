@@ -6,7 +6,6 @@
     $api=new ApiHandler();
     
     $loop=intval($_POST['allowed']/50000);
-    
 
 ?>
 <!doctype html>
