@@ -16,7 +16,7 @@
         if ($_GET['id']==$value['PrimaryID'] && $result[$key]['balance']=='0.00') {
             header('location:transfer.php');
         }
-        
+        $amountAllowed=$result[$key]['balance'];
     }
 
 
@@ -156,6 +156,9 @@
                         }
                         ?>
                         <form method="post" action="transferAmount.php">
+                        <input type="hidden" name="from" value=<?php echo "'$_GET[id]'"; ?>></input>
+                        <input type="hidden" name="allowed" value=<?php echo "'$amountAllowed'"; ?>></input>
+                        <input type="hidden" name="to" value=<?php echo "'$value[PrimaryID]'"; ?>></input>
                             <div class="col-md-4">
                                 <div class="card">
                                     <div class="header">
