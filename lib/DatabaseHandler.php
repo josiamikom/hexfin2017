@@ -167,7 +167,7 @@ class DatabaseHandler
 
 	public function getWallets($EmailAddress)
 	{
-		$sql="select * from Wallets where EmailAddress='$EmailAddress' ";
+		$sql="select * from Wallet where EmailAddress='$EmailAddress' ";
 		try {
 			$this->openDB();
 			$stmt=$this->conn->prepare($sql);
