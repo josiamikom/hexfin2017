@@ -7,7 +7,15 @@
 	}else{
 		$histori=$histori['response'];
 	}
-	foreach ($histori->getTransactionDetails() as $key => $value) {
-		echo "a";
+	foreach ($histori->getTransactionDetails() as $key => $data) {
+		$history[$key]=$data->getTransactionID();
+	    $history[$key]=$data->getAccountStatementID();
+	    $history[$key]=$data->getTransactionDate();
+	    $history[$key]=$data->getTransactionType();
+	    $history[$key]=$data->getAmount();
+	    $history[$key]=$data->getCurrencyCode();
+	    $history[$key]=$data->getDescription();
+	    $history[$key]=$data->getCurrentBalance();
 	}
+	print_r($history);
  ?>
