@@ -34,7 +34,7 @@
 			//$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($config);
 		}
 
-		public function UserReg($data)
+		public function WalletReg($data)
 		{
 			try{
 				$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
@@ -45,12 +45,13 @@
 				$payload->setPrimaryID($data['PrimaryID']);
 				$payload->setMobileNumber($data['MobileNUmber']);
 				$payload->setEmailAddress($data['EmailAddress']);
-				$payload->setCustomerNumber($data['CustomerNumber']);
+				$payload->setCustomerNumber($data['PrimaryID']);
 				$payload->setIDNumber($data['IDNumber']);
 
 				$response = $subAccountApi->registerUser($payload);
+				return array('status'=>'success','response'=>$response);
 			}catch(\Exception $e){
-				var_dump($e->getMessage());
+				return array('status'=>'failed','response'=>$e);
 			}
 
 		}
@@ -60,9 +61,9 @@
 			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
 			try {
 				$response = $subAccountApi->inquiryUser($id);
-				return $response;
+				return array('status'=>'success','response'=>$response);
 			} catch (Exception $e) {
-				return $e;
+				return array('status'=>'failed','response'=>$e);
 			}
 			
 		}
@@ -79,9 +80,9 @@
 			$payload->setIDNumber($data['IDNumber']);
 			try {
 				$response = $subAccountApi->updateUser($data['PrimaryID'], $payload);
-				return $response;
+				return array('status'=>'success','response'=>$response);
 			} catch (Exception $e) {
-				return $e;
+				return array('status'=>'failed','response'=>$e);
 			}
 		}
 
@@ -96,9 +97,9 @@
 			$payload->setCurrencyCode('IDR');
 			try {
 				$response = $subAccountApi->topUp($payload);
-				return $response;
+				return array('status'=>'success','response'=>$response);
 			} catch (Exception $e) {
-				return $e;
+				return array('status'=>'failed','response'=>$e);
 			}
 		}
 
@@ -110,9 +111,9 @@
 			$params->setEndDate($end);
 			try {
 				$response = $subAccountApi->transactionInquiry($PrimaryID, $params);
-				return $response;
+				return array('status'=>'success','response'=>$response);
 			} catch (Exception $e) {
-				return $e;
+				return array('status'=>'failed','response'=>$e);
 			}
 		}
 
@@ -128,10 +129,19 @@
 			$payload->setCurrencyCode('IDR');
 			try {
 				$response = $subAccountApi->transferCompanyAccount($payload);
-				return $response;
+				return array('status'=>'success','response'=>$response);
 			} catch (Exception $e) {
-				return $e;
+				return array('status'=>'failed','response'=>$e);
 			}
+		}
+
+		public function getOTP($date)
+		{
+			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
+
+			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\OtpGenerationPayload();
+			$payload->setCustomerNumber($data['PrimaryID']);
+			$payload->setAmount($data['Amount']);
 		}
 	}
  ?>
