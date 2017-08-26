@@ -104,12 +104,13 @@
 			}
 		}
 
-		public function History($start,$end,$PrimaryID)
+		public function History($start,$end,$PrimaryID,$last)
 		{
 			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
 			$params = new \Bca\Api\Sdk\SubAccount\Models\Requests\TransactionInquiryParams();
 			$params->setStartDate($start);
 			$params->setEndDate($end);
+			$params->setLastAccountStatementID($last);
 			try {
 				$response = $subAccountApi->transactionInquiry($PrimaryID, $params);
 				return array('status'=>'success','response'=>$response);

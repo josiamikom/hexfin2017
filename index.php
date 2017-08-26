@@ -11,5 +11,5 @@ require_once 'lib/DatabaseHandler.php';
 	///print_r($db->getOTP($otp));
 	require_once 'lib/ApiHandler.php';
 	$api=new ApiHandler();
-	print_r($api->History('2017-08-26','2017-08-26','9'));
+	print_r($api->History('2017-08-26','2017-08-26','9','500499040'));
 ?>
