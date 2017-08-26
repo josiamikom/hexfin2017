@@ -5,5 +5,5 @@ print_r($_POST);
 	require_once 'lib/DatabaseHandler.php';
     $db=new DatabaseHandler();
     $db->Transfer($data,$recipient);
-    header('loaction:wallets.php');/*
+    header('loaction:wallets.php');*/
  ?>
