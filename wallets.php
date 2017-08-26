@@ -8,6 +8,7 @@
     $result=$result['response'];
     foreach ($result as $key => $value) {
         $data=$api->UserInq($value['PrimaryID']);
+        $data=$data['response'];
         $result[$key]['currencyCode']=$data->getCurrencyCode();
         $result[$key]['balance']=$data->getBalance();
     }
