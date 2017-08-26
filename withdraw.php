@@ -143,7 +143,7 @@ require_once 'lib/DatabaseHandler.php';
                                 <div class="content">
                                     <div>
                                     	
-                                        <h2 class="text-info" style="font-size: 17px;">OTP Code: <?php echo "$value[OTPCode]"; ?></h2>
+                                        <h2 class="text-info" style="font-size: 32px;">OTP Code: <?php echo "$value[OTPCode]"; ?></h2>
                                         <h3 class="text-success" style="font-size: 14px;"> <?php echo "$value[TransactionType]: IDR $value[Amount]"; ?></h3>
                                     </div>
 
