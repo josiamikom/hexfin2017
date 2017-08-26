@@ -139,7 +139,7 @@
 	                        		<?php 
 	                        		for ($i=0; $i < $loop; $i++) { 
 	                        			?>
-	                        			<option value=<?php echo 50000*($i+1); ?>><?php echo 50000*($i+1); ?></option>
+	                        			<option value=<?php echo 50000*($i+1); ?>><?php echo 50000*($i+1); ?>.00</option>
 	                        			<?php
 	                        		}
 
