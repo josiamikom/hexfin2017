@@ -37,7 +37,7 @@
         	curl_setopt_array($ch, $opt);
         	$response = curl_exec($ch);
         	if (curl_error($ch)) {
-	            die(curl_error($ch));
+	            return curl_error($ch);
 	        }
 	        return $response;
 
