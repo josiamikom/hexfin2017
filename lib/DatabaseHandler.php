@@ -98,6 +98,10 @@ class DatabaseHandler
 			$this->closeDB();
 			$ApiHandler= new ApiHandler();
 			$response=$ApiHandler->TopUp($data);
+			$this->openDB();
+			$sql="insert into TopUp_Detail(TransactionID,BCAReferenceID) values($data[TransactionID],$response->BCAReferenceID)";
+			$this->conn->exec($sql);
+			$this->closeDB();
 			return array("status"=>'success','response'=>$response);
 		} catch (Exception $e) {
 			return array('status'=>'failed','response'=>$e);
