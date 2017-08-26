@@ -164,6 +164,24 @@ class DatabaseHandler
 			return array('status'=>'failed','response'=>$e);
 		}
 	}
+
+	public function getWallets($EmailAddress)
+	{
+		$sql="select * from Wallets where EmailAddress='$EmailAddress' ";
+		try {
+			$this->openDB();
+			$stmt=$this->conn->prepare($sql);
+			$stmt->execute();
+			$response=$stmt->setFetchMode(PDO::FETCH_ASSOC); 
+			$result=$stmt->fetchAll();
+			
+			$this->closeDB();
+			
+			return array("status"=>'success','response'=>$result);
+		} catch (Exception $e) {
+			return array('status'=>'failed','response'=>$e);
+		}
+	}
 }
 
  ?>
