@@ -139,7 +139,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                    	<form action="doTransfer.php" method="post">
+                    	<form action="doWithdraw.php" method="post">
                     	<input type="hidden" name="PrimaryID" value=<?php echo "'$_GET[id]'"; ?>></input>
 
 	                        <div class="form-group">
@@ -155,7 +155,7 @@
 	                        		 ?>
 	                        	</select>
 	                        </div>
-	                        <button type="submit" class="btn btn-info">Transfer</button>
+	                        <button type="submit" class="btn btn-info">Withdraw</button>
 	                    </form>
                     </div>
                 </div>
