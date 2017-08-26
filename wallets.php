@@ -147,8 +147,8 @@
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title"><?php echo "$value['Name']"; ?></h4>
-                                    <p class="category">Created at <?php echo "$value['Created']"; ?> </p>
+                                    <h4 class="title"><?php echo "$value[Name]"; ?></h4>
+                                    <p class="category">Created at <?php echo "$value[Created]"; ?> </p>
                                 </div>
                                 <div class="content">
                                     <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
