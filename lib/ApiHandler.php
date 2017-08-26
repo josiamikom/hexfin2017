@@ -136,13 +136,19 @@
 			}
 		}
 
-		public function getOTP($date)
+		public function getOTP($data)
 		{
 			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
 
 			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\OtpGenerationPayload();
 			$payload->setCustomerNumber($data['PrimaryID']);
 			$payload->setAmount($data['Amount']);
+			try {
+				$response = $subAccountApi->generateOtp($payload);
+				return array('status'=>'success','response'=>$response);
+			} catch (Exception $e) {
+				return array('status'=>'failed','response'=>$e);
+			}
 		}
 	}
  ?>

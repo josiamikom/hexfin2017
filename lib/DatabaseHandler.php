@@ -86,10 +86,14 @@ class DatabaseHandler
 		}
 	}
 
+	public function MakeDeposit($data)
+	{
+		# code...
+	}
+
 	public function TopUp($data)
 	{
 		$data['RequestDate']=date('Y-m-d').'T'.date('H:i:s.000P');
-		echo "$data[RequestDate]";
 		try {
 			$this->openDB();
 			$sql="insert into Transaction(TransactionType,ISODate,Amount,PrimaryID) values('topup','$data[RequestDate]','$data[Amount]',$data[PrimaryID])";
@@ -98,10 +102,30 @@ class DatabaseHandler
 			$this->closeDB();
 			$ApiHandler= new ApiHandler();
 			$response=$ApiHandler->TopUp($data);
-			print_r($response);
 			$this->openDB();
 			$sql="insert into TopUp_Detail(TransactionID,BCAReferenceID) values($data[TransactionID],'$response[response]')";
 			$this->conn->exec($sql);
+			$this->closeDB();
+			return array("status"=>'success','response'=>$response);
+		} catch (Exception $e) {
+			return array('status'=>'failed','response'=>$e);
+		}
+	}
+
+	public function getOTP($data)
+	{
+		$data['RequestDate']=date('Y-m-d').'T'.date('H:i:s.000P');
+		try {
+			$this->openDB();
+			$sql="insert into Transaction(TransactionType,ISODate,Amount,PrimaryID) values('$data[type]','$data[RequestDate]','$data[Amount]',$data[PrimaryID])";
+			$this->conn->exec($sql);
+			$data['TransactionID']=$this->conn->lastInsertId();
+			$this->closeDB();
+			$ApiHandler= new ApiHandler();
+			$response=$ApiHandler->getOTP($data);
+			$this->openDB();
+			//$sql="insert into TopUp_Detail(TransactionID,BCAReferenceID) values($data[TransactionID],'$response[response]')";
+			//$this->conn->exec($sql);
 			$this->closeDB();
 			return array("status"=>'success','response'=>$response);
 		} catch (Exception $e) {
