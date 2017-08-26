@@ -5,7 +5,7 @@
     require_once 'lib/ApiHandler.php';
     $api=new ApiHandler();
     
-
+    $loop=intval($_POST['allowed']/50000);
     
 
 ?>
@@ -135,8 +135,17 @@
                     	<form action="doTransfer.php" method="post">
                     	<input type="hidden" name="data" value=<?php echo $_POST; ?>></input>
 	                        <div class="form-group">
-	                        	<label>Transfer Amount (Max. <?php echo "$_POST[allowed]"; ?>)</label>
-	                        	<input type="text" class="form-control" name="Name" required=""></input>
+	                        	<label>Transfer Amount (Max. <?php echo "'$_POST[allowed]'"; ?>)</label>
+	                        	<select name="Amount">
+	                        		<?php 
+	                        		for ($i=0; $i < $loop; $i++) { 
+	                        			?>
+	                        			<option value=<?php echo 50000*($i+1); ?>><?php echo 50000*($i+1); ?></option>
+	                        			<?php
+	                        		}
+
+	                        		 ?>
+	                        	</select>
 	                        </div>
 	                        <button type="submit" class="btn btn-info">Transfer</button>
 	                    </form>
