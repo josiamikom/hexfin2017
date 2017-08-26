@@ -117,7 +117,7 @@ class DatabaseHandler
 		$data['RequestDate']=date('Y-m-d').'T'.date('H:i:s.000P');
 		try {
 			$this->openDB();
-			$sql="insert into Transaction(TransactionType,ISODate,Amount,PrimaryID) values('$data[type]','$data[RequestDate]','$data[Amount]',$data[PrimaryID])";
+			$sql="insert into Transaction(TransactionType,ISODate,Amount,PrimaryID) values('$data[Type]','$data[RequestDate]','$data[Amount]',$data[PrimaryID])";
 			$this->conn->exec($sql);
 			$data['TransactionID']=$this->conn->lastInsertId();
 			$this->closeDB();

@@ -141,7 +141,13 @@
                     <div class="col-md-6">
                     	<form action="doWithdraw.php" method="post">
                     	<input type="hidden" name="PrimaryID" value=<?php echo "'$_GET[id]'"; ?>></input>
-
+                            <div class="form-group">
+                                <label>Withdraw Type</label>
+                                <select name="Type" class="form-control">
+                                    <option value="cashout">Cash Out at ATM</option>
+                                    <option value="paymentedc">Payment at EDC Machine</option>
+                                </select>
+                            </div>
 	                        <div class="form-group">
 	                        	<label>Withdraw Amount</label>
 	                        	<select name="Amount" class="form-control">
