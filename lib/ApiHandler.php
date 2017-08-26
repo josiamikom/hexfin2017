@@ -130,7 +130,7 @@
 			$payload->setCurrencyCode('IDR');
 			try {
 				$response = $subAccountApi->transferCompanyAccount($payload);
-				return array('status'=>'success','response'=>$response);
+				return array('status'=>'success','response'=>$response->getBCAReferenceID());
 			} catch (Exception $e) {
 				return array('status'=>'failed','response'=>$e);
 			}
