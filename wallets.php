@@ -51,8 +51,8 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
-                    <a href="#">
+                <li>
+                    <a href="dashboard.php">
                         <i class="pe-7s-home"></i>
                         <p>Home</p>
                     </a>
@@ -75,7 +75,7 @@
                         <p>Withdraw</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="wallets.php">
                         <i class="pe-7s-wallet"></i>
                         <p>Wallets</p>
