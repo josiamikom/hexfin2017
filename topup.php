@@ -145,7 +145,7 @@
                 </div>
                 <div class="row">
                     <?php 
-                    foreach ($wallets as $key => $value) {
+                    foreach ($result as $key => $value) {
                         
                         ?>
                         <form  action="selectedTopup.php">
