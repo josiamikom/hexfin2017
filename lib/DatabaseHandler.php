@@ -101,9 +101,9 @@ class DatabaseHandler
 			$this->openDB();
 			$ref=$response['response'];
 			$sql="insert into TopUp_Detail(TransactionID,BCAReferenceID) values($data[TransactionID],'$ref->BCAReferenceID')";
-			$this->conn->exec($sql);
+			//$this->conn->exec($sql);
 			$this->closeDB();
-			return array("status"=>'success','response'=>$response);
+			return array("status"=>'success','response'=>$ref);
 		} catch (Exception $e) {
 			return array('status'=>'failed','response'=>$e);
 		}
