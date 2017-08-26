@@ -133,6 +133,11 @@ require_once 'lib/DatabaseHandler.php';
                 <div class="row">
                     <?php 
                     foreach ($result as $key => $value) {
+                    	if ($value['TransactionType']=='cashout') {
+                    		$type='Cash Out at ATM';
+                    	}else {
+                    		$type='Payment at EDC Machine';
+                    	}
                         ?>
                         <div class="col-md-4">
                             <div class="card">
@@ -144,7 +149,7 @@ require_once 'lib/DatabaseHandler.php';
                                     <div>
                                     	
                                         <h2 class="text-info" style="font-size: 32px;">OTP Code: <?php echo "$value[OTPCode]"; ?></h2>
-                                        <h3 class="text-success" style="font-size: 14px;"> <?php echo "$value[TransactionType]: IDR $value[Amount]"; ?></h3>
+                                        <h3 class="text-success" style="font-size: 14px;"> <?php echo "$type:<br/> IDR $value[Amount]"; ?></h3>
                                     </div>
 
                                     <div class="footer">
