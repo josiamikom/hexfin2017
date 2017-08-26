@@ -156,7 +156,7 @@
                                     </div>
 
                                     <div class="footer">
-                                        <div class="legend">
+                                        <div class="legend" style="font-size: 12px">
                                             <a href=<?php echo "'selectedTopup.php?id=$value[PrimaryID]'"; ?>><i class="fa fa-circle text-info"></i> TopUp</a>
                                             <a href=<?php echo "'selectedTransfer.php?id=$value[PrimaryID]'"; ?>><i class="fa fa-circle text-warning"></i> Transfer</a>
                                             <a href=<?php echo "'selectedWithdraw.php?id=$value[PrimaryID]'"; ?>><i class="fa fa-circle text-danger"></i> Withdraw</a>
