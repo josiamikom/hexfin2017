@@ -11,7 +11,7 @@
         $data=$data['response'];
         $result[$key]['currencyCode']=$data->getCurrencyCode();
         $result[$key]['balance']=$data->getBalance();
-        $data=$api->History('2016-01-01','2017-08-28',$value['PrimaryID'],'');
+        $data=$api->History('2017-08-01','2017-08-28',$value['PrimaryID'],'');
         $data=$data['response'];
         $result[$key]['history']=$data;
     }
