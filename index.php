@@ -2,7 +2,7 @@
 echo "<pre>";
 require_once 'lib/DatabaseHandler.php';
 	$db=new DatabaseHandler();
-	$data=array('CustomerName'=>'tes1','DateOfBirth'=>'1995-01-21','EmailAddress'=>'josiaranda21@gmail.com','IDNumber'=>'6474','Name'=>'Groceries','Type'=>'reguler');
+	$data=array('CustomerName'=>'tes1','DateOfBirth'=>'1995-01-21','EmailAddress'=>'josiaranda21@gmail.com','IDNumber'=>'6474','Name'=>'Gas Money','Type'=>'reguler');
 	//$topup=array('PrimaryID'=>'9','Amount'=>'5000.00');
 	print_r($db->MakeWallet($data));
 	//print_r($db->TopUp($topup));
