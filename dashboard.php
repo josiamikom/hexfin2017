@@ -154,20 +154,25 @@
                                     <div class="row">
                                         <form action="doWithdraw.php" method="post">
                                             <input type="hidden" name="PrimaryID" value=<?php echo "$value[PrimaryID]"; ?>></input>
-                                            <select name="Amount" class="form-control">
-                                                <?php 
-                                                for ($i=0; $i < intval(intval($value['Amount'])/50000); $i++) { 
-                                                    ?>
-                                                    <option value=<?php echo 50000*($i+1).'.00'; ?>><?php echo 50000*($i+1); ?>.00</option>
-                                                    <?php
-                                                }
+                                            <div class="form-group">
+                                                <select name="Amount" class="form-control">
+                                                    <?php 
+                                                    for ($i=0; $i < intval(intval($value['Amount'])/50000); $i++) { 
+                                                        ?>
+                                                        <option value=<?php echo 50000*($i+1).'.00'; ?>><?php echo 50000*($i+1); ?>.00</option>
+                                                        <?php
+                                                    }
 
-                                                 ?>
-                                            </select>
-                                            <select name="Type" class="form-control">
-                                                <option value="cashout">Cash Out at ATM</option>
-                                                <option value="paymentedc">Payment at EDC Machine</option>
-                                            </select>
+                                                     ?>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="Type" class="form-control">
+                                                    <option value="cashout">Cash Out at ATM</option>
+                                                    <option value="paymentedc">Payment at EDC Machine</option>
+                                                </select>    
+                                            </div>
+                                            
                                             <button type="action" class="btn btn-info"><i class="pe-7s-shopbag"></i></button>
                                         </form>
                                     </div>
