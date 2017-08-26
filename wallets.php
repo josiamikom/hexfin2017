@@ -13,8 +13,12 @@
         $result[$key]['balance']=$data->getBalance();
         $data=$api->History('2017-08-01','2017-08-28',$value['PrimaryID'],'');
         $data=$data['response'];
-        $data=$data->getBody()->getErrorMessage()->getEnglish();
-        $result[$key]['history']=$data;
+        if ($data->getBody()->getErrorMessage()->getEnglish()=='No transaction') {
+            $result[$key]['history']=array();
+        }else {
+            $result[$key]['history']=$data;    
+        }
+        
     }
     echo "<pre>";
     print_r($result);
