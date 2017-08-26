@@ -132,7 +132,9 @@
                 <div class="row">
                     <div class="col-md-6">
                     	<form action="doTransfer.php" method="post">
-                    	<input type="hidden" name="data" value=<?php echo "'$_POST'"; ?>></input>
+                    	<input type="hidden" name="from" value=<?php echo "'$_POST[from]'"; ?>></input>
+                    	<input type="hidden" name="to" value=<?php echo "'$_POST[to]'"; ?>></input>
+
 	                        <div class="form-group">
 	                        	<label>Transfer Amount (Max. <?php echo "'$_POST[allowed]'"; ?>)</label>
 	                        	<select name="Amount" class="form-control">
