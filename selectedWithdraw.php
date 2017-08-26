@@ -9,7 +9,7 @@
     
     $result[$key]['balance']=$data->getBalance();
     $amountAllowed=$result[$key]['balance'];
-    $loop=intval($_POST['allowed']/50000);
+    $loop=intval($amountAllowed/50000);
         
 
 ?>
