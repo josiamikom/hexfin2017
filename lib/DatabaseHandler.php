@@ -127,8 +127,8 @@ class DatabaseHandler
 			$otp=$response->getOTPCode();
 			$exp=$response->getExpiredDate();
 			$this->openDB();
-			//$sql="insert into TopUp_Detail(TransactionID,BCAReferenceID) values($data[TransactionID],'$response[response]')";
-			//$this->conn->exec($sql);
+			$sql="insert into OTP_Detail(OTPCode,ExpiredDate,TransactionID) values('$otp','$exp',$data[TransactionID])";
+			$this->conn->exec($sql);
 			$this->closeDB();
 			return array("status"=>'success','response'=>$otp);
 		} catch (Exception $e) {
