@@ -4,8 +4,13 @@
     $db=new DatabaseHandler();
     require_once 'lib/ApiHandler.php';
     $api=new ApiHandler();
+    $data=$api->UserInq($_GET['id']);
+    $data=$data['response'];
     
+    $result[$key]['balance']=$data->getBalance();
+    $amountAllowed=$result[$key]['balance'];
     $loop=intval($_POST['allowed']/50000);
+        
 
 ?>
 <!doctype html>
@@ -132,11 +137,10 @@
                 <div class="row">
                     <div class="col-md-6">
                     	<form action="doTransfer.php" method="post">
-                    	<input type="hidden" name="from" value=<?php echo "'$_POST[from]'"; ?>></input>
-                    	<input type="hidden" name="to" value=<?php echo "'$_POST[to]'"; ?>></input>
+                    	<input type="hidden" name="PrimaryID" value=<?php echo "'$_GET[id]'"; ?>></input>
 
 	                        <div class="form-group">
-	                        	<label>Transfer Amount </label>
+	                        	<label>Withdraw Amount</label>
 	                        	<select name="Amount" class="form-control">
 	                        		<?php 
 	                        		for ($i=0; $i < $loop; $i++) { 
