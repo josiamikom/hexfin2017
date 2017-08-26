@@ -19,7 +19,7 @@
 		public function getAccessToken()
 		{
 			
-			$post=array('grant_type'=>'client_credentials';
+			$post=array('grant_type'=>'client_credentials');
 			$header_data = array(
             "Content-Type: application/x-www-form-urlencoded",
             "Authorization: MjY4YjIwNjktYjA5OS00ZmEyLTgxNDgtMWYxYzAzMjdmZTYzOmIzODNjMzVkLTNjMTEtNGNlNi1iNjMxLTg3NjdmNGMyMDg0Yg=="
@@ -31,13 +31,13 @@
             CURLOPT_HTTPHEADER => $header_data,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => json_encode($post),
+            CURLOPT_POSTFIELDS => $post,
             CURLOPT_HEADER => 1,
         	);
         	curl_setopt_array($ch, $opt);
         	$response = curl_exec($ch);
         	if (curl_error($ch)) {
-	            return curl_error($ch);
+	            die(curl_error($ch));
 	        }
 	        return $response;
 
