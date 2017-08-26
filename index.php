@@ -7,6 +7,6 @@ require_once 'lib/DatabaseHandler.php';
 	//print_r($db->MakeWallet($data));
 	//print_r($db->TopUp($topup));
 //echo date('c');
-	$otp=array('type'=>'cashout','PrimaryID'=>'9','Amount'=>'5000.00');
+	$otp=array('type'=>'cashout','PrimaryID'=>'9','Amount'=>'50000.00');
 	print_r($db->getOTP($otp));
 ?>
