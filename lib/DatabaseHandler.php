@@ -71,14 +71,16 @@ class DatabaseHandler
 			$stmt=$this->conn->prepare($sql);
 			$stmt->execute();
 			$response=$stmt->setFetchMode(PDO::FETCH_ASSOC); 
-			$result=$stmt->fetchAll()[0];
+			$result=$stmt->fetchAll();
 			
 			$sql="insert into Wallet(Type,EmailAddress) values('$data[Type]','$data[EmailAddress]')";
 			$this->conn->exec($sql);
-			$result['PrimaryID']=$this->conn->lastInsertId();
+			$result[0]['PrimaryID']=$this->conn->lastInsertId();
 			$this->closeDB();
+			$ApiHandler=new ApiHandler();
+			$response=$ApiHandler->WalletReg($result[0]);
 
-			return array("status"=>'success','response'=>);
+			return array("status"=>'success','response'=>$result);
 		} catch (Exception $e) {
 			return array('status'=>'failed','response'=>$e);
 		}

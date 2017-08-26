@@ -43,7 +43,7 @@
 				$payload->setCustomerName($data['CustomerName']);
 				$payload->setDateOfBirth($data['DateOfBirth']);
 				$payload->setPrimaryID($data['PrimaryID']);
-				$payload->setMobileNumber($data['MobileNUmber']);
+				$payload->setMobileNumber($data['MobileNumber']);
 				$payload->setEmailAddress($data['EmailAddress']);
 				$payload->setCustomerNumber($data['PrimaryID']);
 				$payload->setIDNumber($data['IDNumber']);
