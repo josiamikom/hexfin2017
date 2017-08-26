@@ -142,7 +142,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <?php 
-                    foreach ($History as $key => $value) {
+                    foreach ($history as $key => $value) {
                     	?>
                         <div class="col-md-4">
                             <div class="card">
