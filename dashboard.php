@@ -152,29 +152,32 @@
                                 foreach ($wallets as $key => $value) {
                                     ?>
                                     <div class="row">
-                                        <form action="doWithdraw.php" method="post">
-                                            <input type="hidden" name="PrimaryID" value=<?php echo "$value[PrimaryID]"; ?>></input>
-                                            <div class="form-group">
-                                                <select name="Amount" class="form-control">
-                                                    <?php 
-                                                    for ($i=0; $i < intval(intval($value['Amount'])/50000); $i++) { 
-                                                        ?>
-                                                        <option value=<?php echo 50000*($i+1).'.00'; ?>><?php echo 50000*($i+1); ?>.00</option>
-                                                        <?php
-                                                    }
+                                        <div class="col-md-11">
+                                        <h4><?php echo "$value[Name]"; ?></h4>
+                                            <form action="doWithdraw.php" method="post">
+                                                <input type="hidden" name="PrimaryID" value=<?php echo "$value[PrimaryID]"; ?>></input>
+                                                <div class="form-group">
+                                                    <select name="Amount" class="form-control">
+                                                        <?php 
+                                                        for ($i=0; $i < intval(intval($value['Amount'])/50000); $i++) { 
+                                                            ?>
+                                                            <option value=<?php echo 50000*($i+1).'.00'; ?>><?php echo 50000*($i+1); ?>.00</option>
+                                                            <?php
+                                                        }
 
-                                                     ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <select name="Type" class="form-control">
-                                                    <option value="cashout">Cash Out at ATM</option>
-                                                    <option value="paymentedc">Payment at EDC Machine</option>
-                                                </select>    
-                                            </div>
-                                            
-                                            <button type="action" class="btn btn-info"><i class="pe-7s-shopbag"></i></button>
-                                        </form>
+                                                         ?>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <select name="Type" class="form-control">
+                                                        <option value="cashout">Cash Out at ATM</option>
+                                                        <option value="paymentedc">Payment at EDC Machine</option>
+                                                    </select>    
+                                                </div>
+                                                
+                                                <button type="action" class="btn btn-info"><i class="pe-7s-shopbag"></i></button>
+                                            </form>
+                                        </div>
                                     </div>
                                     <hr>
                                     <?php
