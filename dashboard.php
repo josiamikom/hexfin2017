@@ -1,4 +1,22 @@
-<!doctype html>
+<?php
+
+    require_once 'lib/DatabaseHandler.php';
+    $db=new DatabaseHandler();
+    require_once 'lib/ApiHandler.php';
+    $api=new ApiHandler();
+    $result=$db->getWallets('josiaranda21@gmail.com');
+    $result=$result['response'];
+    foreach ($result as $key => $value) {
+        $data=$api->UserInq($value['PrimaryID']);
+        $data=$data['response'];
+        $result[$key]['currencyCode']=$data->getCurrencyCode();
+        $result[$key]['balance']=$data->getBalance();
+        $wallets[]=array('PrimaryID'=>$value['PrimaryID'],'Name'=>$value['Name'],'Amount'=>$data->getBalance());
+        
+    }
+    print_r($wallets);
+
+?><!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -127,7 +145,9 @@
                                 <p class="category">Cash out at ATM or Payment in EDC machine </p>
                             </div>
                             <div class="content">
-                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                                <div>
+                                    
+                                </div>
 
                                 <div class="footer">
                                     <div class="legend">
