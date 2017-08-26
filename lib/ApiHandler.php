@@ -49,5 +49,13 @@
 
 			return $response = $subAccountApi->registerUser($payload);
 		}
+
+		public function UserInq($id)
+		{
+			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
+
+			$response = $subAccountApi->inquiryUser($id);
+			return $response;
+		}
 	}
  ?>
