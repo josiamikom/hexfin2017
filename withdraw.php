@@ -2,7 +2,7 @@
 require_once 'lib/DatabaseHandler.php';
     $db=new DatabaseHandler();
     $result=$db->OTPLists('josiaranda21@gmail.com');
-    
+    $result=$result['response'];
  
 
     
@@ -129,14 +129,7 @@ require_once 'lib/DatabaseHandler.php';
 
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6">
-                        <form action="newWallet.php">
-                            <button class="btn btn-info"><i class="pe-7s-plus"></i> New Wallet</button>
-                        </form>    
-                    </div>
-                    <br/>
-                </div>
+                
                 <div class="row">
                     <?php 
                     foreach ($result as $key => $value) {
