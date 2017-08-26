@@ -1,7 +1,6 @@
 <?php
 echo "<pre>";
-
 require_once 'lib/ApiHandler.php';
-$api=new ApiHandler();
-print_r($api->UserReg());
+	$api=new ApiHandler();
+echo date('c');
 ?>

@@ -34,19 +34,19 @@
 			//$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($config);
 		}
 
-		public function UserReg()
+		public function UserReg($data)
 		{
 			try{
 				$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
 
 				$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\UserRegistrationPayload();
-				$payload->setCustomerName('Josi Aranda');
-				$payload->setDateOfBirth('1995-01-21');
-				$payload->setPrimaryID('082155627063');
-				$payload->setMobileNumber('082155627063');
-				$payload->setEmailAddress('josiaranda@gmail.com');
-				$payload->setCustomerNumber('11111111125');
-				$payload->setIDNumber('6474022101950008');
+				$payload->setCustomerName($data['CustomerName']);
+				$payload->setDateOfBirth($data['DateOfBirth']);
+				$payload->setPrimaryID($data['PrimaryID']);
+				$payload->setMobileNumber($data['MobileNUmber']);
+				$payload->setEmailAddress($data['EmailAddress']);
+				$payload->setCustomerNumber($data['CustomerNumber']);
+				$payload->setIDNumber($data['IDNumber']);
 
 				$response = $subAccountApi->registerUser($payload);
 			}catch(\Exception $e){
@@ -58,9 +58,80 @@
 		public function UserInq($id)
 		{
 			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
+			try {
+				$response = $subAccountApi->inquiryUser($id);
+				return $response;
+			} catch (Exception $e) {
+				return $e;
+			}
+			
+		}
 
-			$response = $subAccountApi->inquiryUser($id);
-			return $response;
+		public function UserUpdate($data)
+		{
+			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
+
+			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\UserUpdatePayload();
+			$payload->setCustomerName($data['CustomerName']);
+			$payload->setDateOfBirth($data['DateOfBirth']);
+			$payload->setMobileNumber($data['MobileNUmber']);
+			$payload->setEmailAddress($data['EmailAddress']);
+			$payload->setIDNumber($data['IDNumber']);
+			try {
+				$response = $subAccountApi->updateUser($data['PrimaryID'], $payload);
+				return $response;
+			} catch (Exception $e) {
+				return $e;
+			}
+		}
+
+		public function TopUp($data)
+		{
+			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
+			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\TopUpPayload();
+			$payload->setPrimaryID($data['PrimaryID']);
+			$payload->setTransactionID($data['trxID']);
+			$payload->setRequestDate($data['RequestDate']);
+			$payload->setAmount($data['Amount']);
+			$payload->setCurrencyCode('IDR');
+			try {
+				$response = $subAccountApi->topUp($payload);
+				return $response;
+			} catch (Exception $e) {
+				return $e;
+			}
+		}
+
+		public function History($start,$end,$PrimaryID)
+		{
+			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
+			$params = new \Bca\Api\Sdk\SubAccount\Models\Requests\TransactionInquiryParams();
+			$params->setStartDate($start);
+			$params->setEndDate($end);
+			try {
+				$response = $subAccountApi->transactionInquiry($PrimaryID, $params);
+				return $response;
+			} catch (Exception $e) {
+				return $e;
+			}
+		}
+
+		public function WithdrawBack($data)
+		{
+			$subAccountApi = new \Bca\Api\Sdk\SubAccount\SubAccountApi($this->getConfig());
+
+			$payload = new \Bca\Api\Sdk\SubAccount\Models\Requests\TransferCompanyPayload();
+			$payload->setPrimaryID($data['PrimaryID']);
+			$payload->setTransactionID($data['trxID']);
+			$payload->setRequestDate($data['RequestDate']);
+			$payload->setAmount($data['Amount']);
+			$payload->setCurrencyCode('IDR');
+			try {
+				$response = $subAccountApi->transferCompanyAccount($payload);
+				return $response;
+			} catch (Exception $e) {
+				return $e;
+			}
 		}
 	}
  ?>
