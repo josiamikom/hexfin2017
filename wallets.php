@@ -157,9 +157,10 @@
 
                                     <div class="footer">
                                         <div class="legend">
-                                            <i class="fa fa-circle text-info"></i> TopUp
-                                            <i class="fa fa-circle text-danger"></i> Transfer
-                                            <i class="fa fa-circle text-warning"></i> Withdraw
+                                            <a href=<?php echo "'$selectedTopup.php?id=$value[PrimaryID]'"; ?>><i class="fa fa-circle text-info"></i> TopUp</a>
+                                            <i class="fa fa-circle text-warning"></i> Transfer
+                                            <i class="fa fa-circle text-danger"></i> Withdraw
+                                            <i class="fa fa-circle text-success"></i> History
                                         </div>
                                         <hr>
                                         
