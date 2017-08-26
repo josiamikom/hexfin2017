@@ -7,5 +7,7 @@
 	}else{
 		$histori=$histori['response'];
 	}
-	print_r($histori);
+	foreach ($histori->getTransactionDetails() as $key => $value) {
+		echo "a";
+	}
  ?>
