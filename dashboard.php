@@ -148,9 +148,33 @@
                                 <p class="category">Cash out at ATM or Payment in EDC machine </p>
                             </div>
                             <div class="content">
-                                <div>
-                                    
-                                </div>
+                                <?php 
+                                foreach ($wallets as $key => $value) {
+                                    ?>
+                                    <div class="row">
+                                        <form action="doWithdraw.php" method="post">
+                                            <input type="hidden" name="PrimaryID" value=<?php echo "$value[PrimaryID]"; ?>></input>
+                                            <select name="Amount" class="form-control">
+                                                <?php 
+                                                for ($i=0; $i < intval(intval($value['Amount'])/50000); $i++) { 
+                                                    ?>
+                                                    <option value=<?php echo 50000*($i+1).'.00'; ?>><?php echo 50000*($i+1); ?>.00</option>
+                                                    <?php
+                                                }
+
+                                                 ?>
+                                            </select>
+                                            <select name="Type" class="form-control">
+                                                <option value="cashout">Cash Out at ATM</option>
+                                                <option value="paymentedc">Payment at EDC Machine</option>
+                                            </select>
+                                            <button type="action" class="btn btn-info"><i class="pe-7s-shopbag"></i></button>
+                                        </form>
+                                    </div>
+                                    <hr>
+                                    <?php
+                                }
+                                 ?>
 
                                 <div class="footer">
                                     <div class="legend">
