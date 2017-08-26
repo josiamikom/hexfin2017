@@ -17,7 +17,6 @@
         
         
     }
-    print_r($wallets);
 
 ?><!doctype html>
 <html lang="en">
@@ -153,7 +152,7 @@
                                     ?>
                                     <div class="row">
                                         <div class="col-md-11">
-                                        <h4><?php echo "$value[Name]"; ?></h4>
+                                        <h4 style="margin-top: 10px;"><?php echo "$value[Name]"; ?></h4>
                                             <form action="doWithdraw.php" method="post">
                                                 <input type="hidden" name="PrimaryID" value=<?php echo "$value[PrimaryID]"; ?>></input>
                                                 <div class="form-group">
