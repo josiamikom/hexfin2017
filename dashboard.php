@@ -174,7 +174,7 @@
                                                     </select>    
                                                 </div>
                                                 
-                                                <button type="action" class="btn btn-info"><i class="pe-7s-shopbag"></i></button>
+                                                <button type="action" class="btn btn-info">Withdraw</button>
                                             </form>
                                         </div>
                                     </div>
