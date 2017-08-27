@@ -17,7 +17,7 @@
 		    $history[$key]['CurrentBalance']=$data->getCurrentBalance();
 		}
 	}
-	
+	print_r($history);
  ?>
 
 <!doctype html>
