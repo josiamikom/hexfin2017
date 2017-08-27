@@ -3,7 +3,7 @@
 	$api=new ApiHandler();
 	$histori=$api->History('2017-08-01','2017-08-27',$_GET['id'],'');
 	if ($histori['status']=='failed') {
-		$histori=array('TransactionType'=>'No History','TransactionDate'=>'','Amount'=>'','CurrentBalance'=>'');
+		$histori[0]=array('TransactionType'=>'No History','TransactionDate'=>'','Amount'=>'','CurrentBalance'=>'');
 	}else{
 		$histori=$histori['response'];
 		foreach ($histori->getTransactionDetails() as $key => $data) {
